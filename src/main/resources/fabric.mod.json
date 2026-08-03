@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "creature-feature",
+	"version": "${version}",
+	"name": "creature-feature",
+	"description": "Library to help with overriding blocks in features",
+	"authors": [
+		"Bee"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/creature-feature/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"bee.creature.CreatureFeature"
+		]
+	},
+	"mixins": [
+		"creature-feature.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

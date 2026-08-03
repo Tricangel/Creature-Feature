@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "package": "bee.creature.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "NoiseProviderMixin",
+    "NoiseThresholdProviderMixin",
+    "RandomizedIntStateProviderMixin",
+    "RotatedBlockProviderMixin",
+    "SimpleStateProviderMixin",
+    "WeightedStateProvider"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+	}
+}
