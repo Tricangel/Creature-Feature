@@ -16,7 +16,6 @@ public class CreatureFeature implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		BlockStateProviderOverrides.addOverride(Blocks.SUNFLOWER, Blocks.ACACIA_DOOR.defaultBlockState(), 1);
 	}
 
 	public static Identifier id(String path) {
