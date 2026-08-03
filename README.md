@@ -1,2 +1,2 @@
 # Creature Feature
-A creature featuring, featuring the creature
+A creature feature, featuring the creature
