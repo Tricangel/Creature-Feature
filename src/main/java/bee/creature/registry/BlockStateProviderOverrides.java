@@ -18,8 +18,10 @@ public class BlockStateProviderOverrides {
     public static BlockState shouldOverride(BlockState state, RandomSource random, BlockPos pos) {
 
         for (BlockOverride override : blockOverrides) {
-            if ((override.target().equals(state) || override.target().equals(state.getBlock())) && random.nextInt(override.chance()) == 0) {
-                return override.replacement().getState(random, pos);
+            if ((override.target().equals(state) || override.target().equals(state.getBlock()))) {
+                if (override.chance == 0 || random.nextInt(override.chance()) == 0) {
+                    return override.replacement().getState(random, pos);
+                }
             }
         }
 
@@ -34,6 +36,14 @@ public class BlockStateProviderOverrides {
 
     public static void addOverride(BlockState target, BlockStateProvider replacement, int chance) {
         blockOverrides.add(new BlockOverride(target, replacement, chance));
+    }
+
+    public static void addOverride(Block target, BlockStateProvider replacement) {
+        blockOverrides.add(new BlockOverride(target, replacement, 0));
+    }
+
+    public static void addOverride(BlockState target, BlockStateProvider replacement) {
+        blockOverrides.add(new BlockOverride(target, replacement, 0));
     }
 
 
