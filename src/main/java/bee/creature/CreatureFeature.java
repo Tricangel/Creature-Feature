@@ -6,6 +6,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.Identifier;
 
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +17,6 @@ public class CreatureFeature implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		BlockStateProviderOverrides.addOverride(Blocks.SUNFLOWER, Blocks.ACACIA_DOOR.defaultBlockState(), 1);
 	}
 
 	public static Identifier id(String path) {
