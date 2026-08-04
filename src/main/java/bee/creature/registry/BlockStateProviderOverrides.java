@@ -13,22 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlockStateProviderOverrides {
-    private static final List<StateOverride> blockStateOverrides = new ArrayList<>();
     private static final List<BlockOverride> blockOverrides = new ArrayList<>();
 
     public static BlockState shouldOverride(BlockState state, RandomSource random, BlockPos pos) {
 
         for (BlockOverride override : blockOverrides) {
-            if (override.target().equals(state.getBlock()) && random.nextInt(override.chance()) == 0) {
+            if ((override.target().equals(state) || override.target().equals(state.getBlock())) && random.nextInt(override.chance()) == 0) {
                 return override.replacement().getState(random, pos);
             }
         }
 
-        for (StateOverride override : blockStateOverrides) {
-            if (override.target().equals(state) && random.nextInt(override.chance()) == 0) {
-                return override.replacement().getState(random, pos);
-            }
-        }
 
         return null;
 
@@ -39,15 +33,11 @@ public class BlockStateProviderOverrides {
     }
 
     public static void addOverride(BlockState target, BlockStateProvider replacement, int chance) {
-        blockStateOverrides.add(new StateOverride(target, replacement, chance));
+        blockOverrides.add(new BlockOverride(target, replacement, chance));
     }
 
 
-    private record BlockOverride(Block target, BlockStateProvider replacement, int chance) {
-
-    }
-
-    private record StateOverride(BlockState target, BlockStateProvider replacement, int chance) {
+    private record BlockOverride(Object target, BlockStateProvider replacement, int chance) {
 
     }
 

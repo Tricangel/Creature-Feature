@@ -8,8 +8,8 @@
 		"Bee"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"discord": "https://discord.gg/YCm5DBF8dx",
+		"sources": "https://github.com/Tricangel/Creature-Feature"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/creature-feature/icon.png",
