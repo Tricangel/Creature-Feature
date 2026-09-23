@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class RotatedBlockProviderMixin {
 	@ModifyReturnValue(at = @At("RETURN"), method = "getState")
 	private BlockState init(BlockState original, final LevelAccessor level, final RandomSource random, final BlockPos pos) {
-		BlockState state = BlockStateProviderOverrides.shouldOverride(original, random);
+		BlockState state = BlockStateProviderOverrides.shouldOverride(original, level, random, pos);
 
 		if (state != null) {
 			return state;
